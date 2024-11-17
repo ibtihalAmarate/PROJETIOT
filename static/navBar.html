@@ -1,31 +1,25 @@
+<!-- navbar.html -->
+<div id="navbar" class="navbar" style="background-image: url({% static 'images/HD.jpg' %})">
+  <nav>
+    <!-- Toggle button -->
+    <div class="toggle-btn" onclick="toggleNavbar()">☰</div>
 
-  <div class="navbar">
-    <nav >
-        <h2 class="logo">SURVEILLANCE IOT:CAPTEUR DHT11</h2>
+    <!-- Logo and menu -->
+    <h2 class="logo">SURVEILLANCE IOT: CAPTEUR DHT11</h2>
+    <ul>
+      <li><a href="{% url 'table' %}">Table</a></li>
+      <li><a href="{% url 'myChartTemp' %}">Graph of Temperature</a></li>
+      <li><a href="{% url 'myChartHum' %}">Graph of Humidity</a></li>
+      <li><a href="{% url 'json' %}">JSON</a></li>
+    </ul>
 
-            <ul>
-                    <li>  <a href="{% url 'table' %}" >Table</a></li>
-                    <li>  <a href="{% url 'myChartTemp' %}" > graph of temperature</a></li>
-                    <li>  <a href="{% url 'myChartHum' %}" >graph of humidity</a></li>
-                    <li>  <a href="{% url 'json' %}" >Json</a></li>
-
-            </ul>
-        <form method="post" action="{% url 'table' %}">
-                {% csrf_token %}
-
-                <select id="select" name="select_field">
-
-                  <option value="signup" selected>S'inscrire</option>
-                  <option value="logout">Se déconnecter</option>
-                </select>
-
-              </form>
-            <p> </p>
-
-
-    </nav>
+    <!-- User selection form -->
+    <form method="post" action="{% url 'index_view' %}">
+      {% csrf_token %}
+      <select id="select" name="select_field">
+        <option value="signup" selected>S'inscrire</option>
+        <option value="logout">Se déconnecter</option>
+      </select>
+    </form>
+  </nav>
 </div>
-   <br>
-   <br>
-   <br>
-  <br>
